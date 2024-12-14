@@ -1,6 +1,9 @@
 import { AlbumController, ArtistController, SearchController, SongController } from '#modules/index'
 import { PlaylistController } from '#modules/playlists/controllers'
 import { App } from './app'
+import { OpenAPIHono } from '@hono/zod-openapi'
+import { swaggerUI } from '@hono/swagger-ui'
+import { serve } from '@hono/node-server'
 
 const app = new App([
   new SearchController(),
@@ -10,4 +13,20 @@ const app = new App([
   new PlaylistController()
 ]).getApp()
 
-export default app
+const api = new OpenAPIHono()
+api.route('/', app)
+api.doc('/docs', {
+  openapi: '3.1.0',
+  info: {
+    title: 'JioSaavn API',
+    version: '0.0.5',
+    description: 'Unofficial JioSaavn API'
+  }
+})
+api.get('/ui', swaggerUI({ url: '/docs' }))
+
+serve(api, (info) => {
+  console.log(`Server is running on http://${info.address}:${info.port}`)
+})
+
+export default api
