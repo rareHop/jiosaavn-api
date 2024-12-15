@@ -7,7 +7,7 @@
   "outputDirectory": "dist",
   "functions": {
     "api/**/*.{js,ts}": {
-      "runtime": "nodejs18.x"
+      "runtime": "nodejs10.x"
     }
   },
   "headers": [
