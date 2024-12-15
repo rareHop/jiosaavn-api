@@ -7,7 +7,7 @@
   "outputDirectory": "dist",
   "functions": {
     "api/**/*.ts": {
-      "runtime": "vercel-node@18.x"
+      "runtime": "vercel-node@22.x"
     }
   },
   "headers": [
