@@ -6,7 +6,7 @@
   "regions": ["bom1"],
   "outputDirectory": "dist",
   "functions": {
-    "api/**.ts": {
+    "api/**/*.ts": {
       "runtime": "vercel-node@20.x"
     }
   },
