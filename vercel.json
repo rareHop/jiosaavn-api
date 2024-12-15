@@ -1,13 +1,22 @@
 {
   "$schema": "https://openapi.vercel.sh/vercel.json",
+  "version": 2,
   "rewrites": [
     { "source": "(.*)", "destination": "/api" }
   ],
   "regions": ["bom1"],
-  "outputDirectory": "dist",
+  "builds": [
+    {
+      "src": "dist/server.js",
+      "use": "@vercel/node@2.16.0"
+    }
+  ],
+  "routes": [
+    { "src": "/(.*)", "dest": "/api/index.js" }
+  ],
   "functions": {
     "api/**/*.{js,ts}": {
-      "runtime": "nodejs10.x"
+      "runtime": "nodejs18.x"
     }
   },
   "headers": [
