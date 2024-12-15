@@ -6,7 +6,7 @@
   "regions": ["bom1"],
   "outputDirectory": "dist",
   "functions": {
-    "api/index.js": {
+    "api/**/*.{js,ts}": {
       "runtime": "nodejs18.x"
     }
   },
