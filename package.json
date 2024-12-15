@@ -30,7 +30,7 @@
   },
   "scripts": {
     "dev": "nodemon src/server.ts",
-  "build": "tsc && tsc-alias && if not exist dist\\api mkdir dist\\api && copy dist\\server.js dist\\api\\index.js",
+  "build": "tsc && tsc-alias && mkdir -p dist/api && cp dist/server.js dist/api/index.js",
   "start": "node dist/server.js",
     "format": "prettier --write \"./**/*.{js,ts,json}\"",
     "lint": "eslint .",
