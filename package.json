@@ -30,8 +30,8 @@
   },
   "scripts": {
     "dev": "nodemon src/server.ts",
-    "start": "node --experimental-specifier-resolution=node dist/server.js",
-    "build": "tsc && tsc-alias",
+  "build": "tsc && tsc-alias && if not exist dist\\api mkdir dist\\api && copy dist\\server.js dist\\api\\index.js",
+  "start": "node dist/server.js",
     "format": "prettier --write \"./**/*.{js,ts,json}\"",
     "lint": "eslint .",
     "lint:fix": "npm run lint --fix",
